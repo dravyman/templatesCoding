@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 class TigerTest {
   private String defaultSound = "Ррррр";
 
-
   @Test
   void testTigerSound() {
     Tiger tiger = new Tiger();
