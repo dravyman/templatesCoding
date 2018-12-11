@@ -6,11 +6,11 @@ public abstract class Animal {
   private SoundBehaviar soundBehaviar;
   private int age;
 
-  public Animal(SoundBehaviar soundBehaviar) {
+  Animal(SoundBehaviar soundBehaviar) {
     this.soundBehaviar = soundBehaviar;
   }
 
-  public String makeSound() {
+  String makeSound() {
     return soundBehaviar.makeSound();
   }
 
@@ -18,7 +18,7 @@ public abstract class Animal {
     return age;
   }
 
-  public void grow(int i) {age +=i;}
+  void grow(int i) {age += i;}
 
   SoundBehaviar getBehavior() {return soundBehaviar;}
 }
