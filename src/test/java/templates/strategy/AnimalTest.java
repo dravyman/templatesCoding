@@ -1,18 +1,35 @@
 package templates.strategy;
 
 import org.junit.Assert;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 class AnimalTest {
 
-  @Test
-  void firstTest() {
-    List<Animal> animals = List.of(new SimpleDuck(), new Tiger());
+  private List<Animal> animals;
 
-    for (int i = 0; i < animals.size(); i++) {
-      Assert.assertNotNull(animals.get(i).makeSound());
+  @BeforeEach
+  void setUp() {
+    animals = List.of(new SimpleDuck(), new Tiger());
+  }
+
+  @Test
+  void soundBehaviorTest() {
+    for (Animal animal : animals) {
+      Assert.assertNotNull(animal.makeSound());
+    }
+  }
+
+  @Test
+  void ageTest() {
+    for (Animal animal : animals) {
+      Assert.assertTrue(animal.getAge() >= 0);
+      animal.grow(1);
+      Assert.assertEquals(1, animal.getAge());
+      animal.grow(2);
+      Assert.assertEquals(3, animal.getAge());
     }
   }
 }
