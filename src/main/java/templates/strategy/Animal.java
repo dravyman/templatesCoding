@@ -19,4 +19,6 @@ public abstract class Animal {
   }
 
   public void grow(int i) {age +=i;}
+
+  SoundBehaviar getBehavior() {return soundBehaviar;}
 }

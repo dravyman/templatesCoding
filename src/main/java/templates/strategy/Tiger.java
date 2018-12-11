@@ -6,5 +6,6 @@ public class Tiger extends Animal {
 
   public Tiger() {
     super(new TigerSound());
+    ((TigerSound) this.getBehavior()).setAnimal(this);
   }
 }
