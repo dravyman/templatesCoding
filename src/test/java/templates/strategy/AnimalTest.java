@@ -1,16 +1,17 @@
 package templates.strategy;
 
 import org.junit.Assert;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 class AnimalTest {
-  private List<Animal> animals;
+  private static List<Animal> animals;
 
-  @BeforeEach
-  void setUp() {
+  @BeforeAll
+  static void setUp() {
     animals = List.of(new SimpleDuck(), new Tiger());
   }
 
