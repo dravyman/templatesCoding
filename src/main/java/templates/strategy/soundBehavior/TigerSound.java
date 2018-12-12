@@ -3,7 +3,7 @@ package templates.strategy.soundBehavior;
 import templates.strategy.Animal;
 
 public class TigerSound implements SoundBehaviar {
-  Animal tiger;
+  private Animal tiger;
 
   @Override
   public String makeSound() {
