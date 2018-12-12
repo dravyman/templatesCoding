@@ -10,7 +10,8 @@ public class TigerSound implements SoundBehaviar {
     return "Ррр" + "р".repeat(tiger.getAge()) + "!";
   }
 
-  public void setAnimal(Animal thisAnimal) {
+  public SoundBehaviar setAnimal(Animal thisAnimal) {
     this.tiger = thisAnimal;
-  };
+    return this;
+  }
 }

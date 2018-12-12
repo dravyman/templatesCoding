@@ -18,7 +18,10 @@ public abstract class Animal {
     return age;
   }
 
-  void grow(int i) {age += i;}
+  Animal grow(int i) {
+    age += i;
+    return this;
+  }
 
   SoundBehaviar getSoundBehavior() {return soundBehaviar;}
 

@@ -1,6 +1,7 @@
 package templates.strategy;
 
 import templates.strategy.soundBehavior.MeowSound;
+import templates.strategy.soundBehavior.SoundBehaviar;
 import templates.strategy.soundBehavior.TigerSound;
 
 public class Tiger extends Animal {
@@ -11,13 +12,13 @@ public class Tiger extends Animal {
   }
 
   @Override
-  void grow(int i) {
+  Tiger grow(int i) {
     boolean isTigerCub = this.getAge() < meawAge;
     super.grow(i);
     if (isTigerCub && this.getAge() >= meawAge) {
-      TigerSound newTigerSound = new TigerSound();
-      newTigerSound.setAnimal(this);
+      SoundBehaviar newTigerSound = new TigerSound().setAnimal(this);
       this.setNewSoundBehavior(newTigerSound);
     }
+    return this;
   }
 }
