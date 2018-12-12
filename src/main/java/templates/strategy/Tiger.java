@@ -9,6 +9,7 @@ public class Tiger extends Animal {
 
   public Tiger() {
     super(new MeowSound());
+    ((MeowSound) this.getSoundBehavior()).setAnimal(this);
   }
 
   @Override

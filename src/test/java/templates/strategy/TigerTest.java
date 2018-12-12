@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 
 class TigerTest {
   private static String roarSound = "Ррррр";
-  private static String meawSound = "Мяу";
+  private static String meowSound = "Мяу";
+  private static String addMeow= "-мяу";
   private static int untilWeawAge = 2;
 
   @Test
@@ -14,7 +15,7 @@ class TigerTest {
     Tiger littleTiger = new Tiger();
 
     for (int i = 0; i < untilWeawAge; i++) {
-      Assert.assertEquals(meawSound, littleTiger.makeSound());
+      Assert.assertEquals(meowSound + addMeow.repeat(i), littleTiger.makeSound());
       littleTiger.grow(1);
     }
     Assert.assertEquals(roarSound + "!", littleTiger.makeSound());
