@@ -20,5 +20,7 @@ public abstract class Animal {
 
   void grow(int i) {age += i;}
 
-  SoundBehaviar getBehavior() {return soundBehaviar;}
+  SoundBehaviar getSoundBehavior() {return soundBehaviar;}
+
+  void setNewSoundBehavior(SoundBehaviar newSoundBehavior) {this.soundBehaviar = newSoundBehavior;}
 }

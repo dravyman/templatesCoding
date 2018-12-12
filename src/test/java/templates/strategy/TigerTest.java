@@ -4,15 +4,23 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 class TigerTest {
-  private String defaultSound = "Ррррр";
+  int untilWeawAge = 2;
+
+  private String meawSound = "Мяу";
+  private String roarSound = "Ррррр";
 
   @Test
   void testTigerSound() {
-    Tiger tiger = new Tiger();
-    Assert.assertEquals(defaultSound + "!", tiger.makeSound());
-    tiger.grow(1);
-    Assert.assertEquals(defaultSound + "р!", tiger.makeSound());
-    tiger.grow(2);
-    Assert.assertEquals(defaultSound + "ррр!", tiger.makeSound());
+    Tiger littleTiger = new Tiger();
+
+    for (int i = 0; i < untilWeawAge; i++) {
+      Assert.assertEquals(meawSound, littleTiger.makeSound());
+      littleTiger.grow(1);
+    }
+    Assert.assertEquals(roarSound + "!", littleTiger.makeSound());
+    littleTiger.grow(1);
+    Assert.assertEquals(roarSound + "р!", littleTiger.makeSound());
+    littleTiger.grow(2);
+    Assert.assertEquals(roarSound + "ррр!", littleTiger.makeSound());
   }
 }

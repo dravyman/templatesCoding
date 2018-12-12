@@ -7,7 +7,7 @@ public class TigerSound implements SoundBehaviar {
 
   @Override
   public String makeSound() {
-    return "Ррррр" + "р".repeat(tiger.getAge()) + "!";
+    return "Ррр" + "р".repeat(tiger.getAge()) + "!";
   }
 
   public void setAnimal(Animal thisAnimal) {
