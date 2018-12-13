@@ -2,12 +2,13 @@ package templates.strategy;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import templates.TestWithOwnWriter;
 
+import java.io.IOException;
 import java.util.List;
 
-class AnimalTest {
+class AnimalTest extends TestWithOwnWriter {
   private static List<Animal> animals;
 
   @BeforeAll
@@ -17,9 +18,17 @@ class AnimalTest {
 
   @Test
   void soundBehaviorTest() {
-    for (Animal animal : animals) {
-      Assert.assertNotNull(animal.makeSound());
+      for (Animal animal : animals) {
+        Assert.assertNotNull(animal.makeSound());
+      }
+  }
+
+  @Test
+  protected void testWithOwnWriter() throws IOException {
+    for (Animal a : animals) {
+      a.makeSound(OUT);
     }
+    Assert.assertFalse(OUT.toString().isEmpty());
   }
 
   @Test
