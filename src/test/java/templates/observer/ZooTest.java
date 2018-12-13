@@ -15,8 +15,9 @@ class ZooTest {
   }
 
   @Test
-  void zooTest() {
+  void addAnimals() {
     Assert.assertEquals(0, myZoo.getSize());
     Assert.assertEquals(1, myZoo.addNewAnimal(new Tiger()).getSize());
+    Assert.assertEquals(2, myZoo.addNewAnimal(new Tiger()).getSize());
   }
 }
