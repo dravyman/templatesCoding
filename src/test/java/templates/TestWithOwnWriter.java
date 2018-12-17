@@ -13,7 +13,6 @@ public abstract class TestWithOwnWriter {
   @BeforeEach
   void  refreshOUT() {
     getStringAndClearWriter();
-    System.out.println("Буфер обнулился");
   }
   @AfterAll
   static void setOut() throws IOException {

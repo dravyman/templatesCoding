@@ -12,7 +12,6 @@ public abstract class Animal {
   public int getAge() {
     return age;
   }
-
   SoundBehaviar getSoundBehavior() {
     return soundBehaviar;
   }

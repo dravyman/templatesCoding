@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Zoo {
+  static final String SYSTEM_PREFIX = "####### ";
+
   private List<Animal> allAnimals;
   private Writer zooWriter;
 

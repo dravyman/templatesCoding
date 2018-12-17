@@ -10,6 +10,8 @@ import java.io.IOException;
 
 class ZooTest extends TestWithOwnWriter {
 
+  private static final String SYSTEM_PREFIX = Zoo.SYSTEM_PREFIX;
+  private static final String SYSTEM_GREETING = SYSTEM_PREFIX + "Открытие зоопарка";
   private static Zoo myZoo;
 
   @BeforeEach
@@ -28,14 +30,14 @@ class ZooTest extends TestWithOwnWriter {
   void testZoo() throws IOException {
     Zoo tempZoo = new Zoo();
     Assert.assertNotNull(tempZoo.getWritet());
-    Assert.assertEquals("Открытие зоопарка\n", tempZoo.getWritet().toString());
+    Assert.assertEquals(SYSTEM_GREETING +"\n", tempZoo.getWritet().toString());
     tempZoo.close();
     Assert.assertNull(tempZoo.getWritet());
   }
   @Test
   void testZooWriter() {
-    Assert.assertNotNull(myZoo.getWritet());
-    Assert.assertEquals("Открытие зоопарка\n", myZoo.getWritet().toString());
+    Assert.assertNotNull(OUT);
+    Assert.assertEquals(SYSTEM_GREETING +"\n", OUT.toString());
   }
 
   @Test
