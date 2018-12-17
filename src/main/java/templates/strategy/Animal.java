@@ -40,7 +40,5 @@ public abstract class Animal implements PropertyChangeListener {
   }
 
   @Override
-  public void propertyChange(PropertyChangeEvent evt) {
-    System.out.println("У Тигра что-то случилось!!!");
-  }
+  public void propertyChange(PropertyChangeEvent evt) {}
 }
