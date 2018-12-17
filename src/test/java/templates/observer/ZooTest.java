@@ -44,8 +44,16 @@ class ZooTest extends TestWithOwnWriter {
   @Test
   void testGreeting() {
     Assert.assertEquals(SYSTEM_GREETING + "\n", OUT.toString());
-    myZoo.addNewAnimal(new Tiger());
+    Tiger firstTiger = new Tiger();
+    myZoo.addNewAnimal(firstTiger);
+
     myZoo.addNewAnimal(new SimpleDuck());
-    Assert.assertTrue(OUT.getBuffer().indexOf(Tiger.GREETING) >= 0);
+    Assert.assertTrue(getStringAndClearWriter().contains(Tiger.GREETING));
+    firstTiger.grow(1);
+
+    myZoo.addNewAnimal(new Tiger());
+    String currentOUT = getStringAndClearWriter();
+    Assert.assertTrue(currentOUT.contains(Tiger.GREETING));
+    Assert.assertTrue(currentOUT.contains("Привет Tiger!! Я добрая Утка!!!"));
   }
 }

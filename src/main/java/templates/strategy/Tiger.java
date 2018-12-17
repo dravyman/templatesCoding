@@ -18,7 +18,7 @@ public class Tiger extends Animal {
   }
 
   @Override
-  Tiger grow(int i) {
+  public Tiger grow(int i) {
     boolean isTigerCub = this.getAge() < meawAge;
     super.grow(i);
     if (isTigerCub && this.getAge() >= meawAge) {
