@@ -2,9 +2,23 @@ package templates.strategy;
 
 import templates.strategy.soundBehavior.SoundBehaviar;
 
-public abstract class Animal {
+import java.beans.PropertyChangeListener;
+import java.io.IOException;
+import java.io.Writer;
+
+public abstract class Animal implements PropertyChangeListener {
   private SoundBehaviar soundBehaviar;
   private int age;
+
+  public int getAge() {
+    return age;
+  }
+  SoundBehaviar getSoundBehavior() {
+    return soundBehaviar;
+  }
+  void setNewSoundBehavior(SoundBehaviar newSoundBehavior) {
+    this.soundBehaviar = newSoundBehavior;
+  }
 
   Animal(SoundBehaviar soundBehaviar) {
     this.soundBehaviar = soundBehaviar;
@@ -13,17 +27,14 @@ public abstract class Animal {
   String makeSound() {
     return soundBehaviar.makeSound();
   }
-
-  public int getAge() {
-    return age;
+  void makeSound(Writer writer) throws IOException {
+    writer.write(soundBehaviar.makeSound());
+    writer.write('\n');
+    writer.flush();
   }
 
   Animal grow(int i) {
     age += i;
     return this;
   }
-
-  SoundBehaviar getSoundBehavior() {return soundBehaviar;}
-
-  void setNewSoundBehavior(SoundBehaviar newSoundBehavior) {this.soundBehaviar = newSoundBehavior;}
 }
