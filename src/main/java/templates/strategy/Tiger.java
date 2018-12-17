@@ -5,6 +5,7 @@ import templates.strategy.soundBehavior.SoundBehaviar;
 import templates.strategy.soundBehavior.TigerSound;
 
 public class Tiger extends Animal {
+  public static final String GREETING = "Приветствую тебя, мой друг!";
   private static final int meawAge = 2;
 
   public Tiger() {

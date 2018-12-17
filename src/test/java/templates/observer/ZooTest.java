@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import templates.TestWithOwnWriter;
+import templates.strategy.SimpleDuck;
 import templates.strategy.Tiger;
 
 import java.io.IOException;
@@ -42,6 +43,9 @@ class ZooTest extends TestWithOwnWriter {
 
   @Test
   void testGreeting() {
+    Assert.assertEquals(SYSTEM_GREETING + "\n", OUT.toString());
     myZoo.addNewAnimal(new Tiger());
+    myZoo.addNewAnimal(new SimpleDuck());
+    Assert.assertTrue(OUT.getBuffer().indexOf(Tiger.GREETING) >= 0);
   }
 }

@@ -2,10 +2,12 @@ package templates.strategy;
 
 import templates.strategy.soundBehavior.SoundBehaviar;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.IOException;
 import java.io.Writer;
 
-public abstract class Animal {
+public abstract class Animal implements PropertyChangeListener {
   private SoundBehaviar soundBehaviar;
   private int age;
 
@@ -35,5 +37,10 @@ public abstract class Animal {
   Animal grow(int i) {
     age += i;
     return this;
+  }
+
+  @Override
+  public void propertyChange(PropertyChangeEvent evt) {
+    System.out.println("У Тигра что-то случилось!!!");
   }
 }
