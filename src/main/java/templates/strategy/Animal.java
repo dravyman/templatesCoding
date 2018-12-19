@@ -13,27 +13,30 @@ public abstract class Animal implements PropertyChangeListener {
   public int getAge() {
     return age;
   }
-  SoundBehaviar getSoundBehavior() {
+  protected SoundBehaviar getSoundBehavior() {
     return soundBehaviar;
   }
-  void setNewSoundBehavior(SoundBehaviar newSoundBehavior) {
+  protected void setNewSoundBehavior(SoundBehaviar newSoundBehavior) {
     this.soundBehaviar = newSoundBehavior;
   }
 
-  Animal(SoundBehaviar soundBehaviar) {
+  public Animal() {
+  }
+
+  protected Animal(SoundBehaviar soundBehaviar) {
     this.soundBehaviar = soundBehaviar;
   }
 
-  String makeSound() {
+  public String makeSound() {
     return soundBehaviar.makeSound();
   }
-  void makeSound(Writer writer) throws IOException {
+  public void makeSound(Writer writer) throws IOException {
     writer.write(soundBehaviar.makeSound());
     writer.write('\n');
     writer.flush();
   }
 
-  Animal grow(int i) {
+  public Animal grow(int i) {
     age += i;
     return this;
   }

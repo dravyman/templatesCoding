@@ -1,6 +1,7 @@
 package templates.strategy;
 
 import templates.observer.Zoo;
+import templates.strategy.greetBehavior.GreetAnimal;
 import templates.strategy.soundBehavior.MeowSound;
 import templates.strategy.soundBehavior.SoundBehaviar;
 import templates.strategy.soundBehavior.TigerSound;
@@ -8,7 +9,7 @@ import templates.strategy.soundBehavior.TigerSound;
 import java.beans.PropertyChangeEvent;
 import java.io.IOException;
 
-public class Tiger extends Animal {
+public class Tiger extends GreetAnimal {
   public static final String GREETING = "Приветствую тебя, мой друг!";
   private static final int meawAge = 2;
 
@@ -29,10 +30,16 @@ public class Tiger extends Animal {
   }
 
   @Override
+  public String getGreeting(PropertyChangeEvent changeEvent) {
+    return GREETING;
+  }
+
+
+  @Override
   public void propertyChange(PropertyChangeEvent changeEvent) {
     try {
       Zoo zoo = (Zoo) changeEvent.getSource();
-      zoo.getWritet().write(GREETING);
+      zoo.getWritet().write(GREETING + '\n');
     } catch (IOException ignored) {}
   }
 }

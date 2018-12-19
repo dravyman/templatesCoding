@@ -6,11 +6,11 @@ import templates.TestWithOwnWriter;
 
 import java.io.IOException;
 
-class TigerTest extends TestWithOwnWriter {
-  private static String roarSound = "Ррррр";
-  private static String meowSound = "Мяу";
+public class TigerTest extends TestWithOwnWriter {
+  protected static String roarSound = "Ррррр";
+  protected static String meowSound = "Мяу";
   private static String addMeow= "-мяу";
-  private static int untilWeawAge = 2;
+  protected static int untilWeawAge = 2;
 
   @Test
   void testTigerSound() {
