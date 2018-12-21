@@ -1,5 +1,6 @@
-package templates.decorator;
+package templates.decorator.sounds;
 
+import templates.decorator.AnimalDecorator;
 import templates.observer.Zoo;
 import templates.strategy.Animal;
 import templates.strategy.greetBehavior.GreetAnimal;
@@ -7,14 +8,11 @@ import templates.strategy.greetBehavior.GreetAnimal;
 import java.beans.PropertyChangeEvent;
 import java.io.IOException;
 import java.io.Writer;
-import java.util.regex.Pattern;
 
-public class VowelsPullingAnimal extends AnimalDecorator {
-  private static Pattern pattern = Pattern.compile("[eyuioaуеыаоэяию]");
+public abstract class SoundDecorator extends AnimalDecorator {
+  private GreetAnimal innerAnimal;
 
-  GreetAnimal innerAnimal;
-
-  public VowelsPullingAnimal(GreetAnimal animal) {
+  public SoundDecorator(GreetAnimal animal) {
     innerAnimal = animal;
   }
 
@@ -49,8 +47,5 @@ public class VowelsPullingAnimal extends AnimalDecorator {
     } catch (IOException ignored) {}
   }
 
-  private String changeSound(String makeSound) {
-    return pattern.matcher(makeSound).replaceAll("$0$0");
-  }
-
+  protected abstract String changeSound(String makeSound);
 }

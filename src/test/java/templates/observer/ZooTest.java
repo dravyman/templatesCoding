@@ -4,8 +4,8 @@ import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import templates.TestWithOwnWriter;
-import templates.decorator.QuietAnimal;
-import templates.decorator.VowelsPullingAnimal;
+import templates.decorator.sounds.QuietAnimal;
+import templates.decorator.sounds.VowelsPullingAnimal;
 import templates.strategy.SimpleDuck;
 import templates.strategy.Tiger;
 

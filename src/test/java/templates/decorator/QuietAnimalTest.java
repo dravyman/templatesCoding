@@ -2,6 +2,7 @@ package templates.decorator;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import templates.decorator.sounds.QuietAnimal;
 import templates.strategy.Animal;
 import templates.strategy.Tiger;
 import templates.strategy.TigerTest;

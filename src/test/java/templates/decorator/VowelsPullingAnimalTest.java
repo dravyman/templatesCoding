@@ -3,6 +3,7 @@ package templates.decorator;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import templates.TestWithOwnWriter;
+import templates.decorator.sounds.VowelsPullingAnimal;
 import templates.strategy.Animal;
 import templates.strategy.SimpleDuck;
 import templates.strategy.Tiger;
