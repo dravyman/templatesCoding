@@ -31,7 +31,7 @@ public abstract class Animal implements PropertyChangeListener {
     return soundBehaviar.makeSound();
   }
   public void makeSound(Writer writer) throws IOException {
-    writer.write(soundBehaviar.makeSound());
+    writer.write(makeSound());
     writer.write('\n');
     writer.flush();
   }

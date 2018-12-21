@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import templates.TestWithOwnWriter;
 import templates.decorator.QuietAnimal;
+import templates.decorator.VowelsPullingAnimal;
 import templates.strategy.SimpleDuck;
 import templates.strategy.Tiger;
 
@@ -53,7 +54,7 @@ class ZooTest extends TestWithOwnWriter {
     firstTiger.grow(1);
 
     myZoo.addNewAnimal(new QuietAnimal(new SimpleDuck()));
-    myZoo.addNewAnimal(new QuietAnimal(new Tiger()));
+    myZoo.addNewAnimal(new VowelsPullingAnimal(new Tiger()));
     String currentOUT = getStringAndClearWriter();
     Assert.assertTrue(currentOUT.contains(Tiger.GREETING));
     Assert.assertTrue(currentOUT.contains("Привет QuietAnimal!! Я добрая Утка!!!"));
@@ -63,6 +64,6 @@ class ZooTest extends TestWithOwnWriter {
     Assert.assertTrue(currentOUT.contains(Tiger.GREETING));
     Assert.assertTrue(currentOUT.contains("Привет Tiger!! Я добрая Утка!!!"));
     Assert.assertTrue(currentOUT.contains("привет tiger!! я добрая утка!!!"));
-    Assert.assertTrue(currentOUT.contains(Tiger.GREETING.toLowerCase()));
+    Assert.assertTrue(currentOUT.contains(Tiger.GREETING.replaceAll("[eyuioaуеыаоэяию]", "$0$0")));
   }
 }

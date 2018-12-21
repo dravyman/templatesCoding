@@ -8,20 +8,26 @@ import templates.strategy.Animal;
 import templates.strategy.SimpleDuck;
 import templates.strategy.Tiger;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static org.hamcrest.CoreMatchers.instanceOf;
 
 class AnimalTest extends TestWithOwnWriter {
   private static List<Animal> animals;
 
   @BeforeAll
   static void setUp() {
-    animals = List.of(new SimpleDuck(), new Tiger());
+    animals = new ArrayList<>(List.of(new SimpleDuck(), new Tiger()));
   }
 
   @Test
   void soundBehaviorTest() {
+    animals.add(new QuietAnimal(new Tiger()));
+    animals.add(new VowelsPullingAnimal(new Tiger()));
     for (Animal animal : animals) {
-//      Assert.assertNotNull(animal.getDescription());
+      Assert.assertThat(animal, instanceOf(Animal.class));
     }
+
   }
 }
